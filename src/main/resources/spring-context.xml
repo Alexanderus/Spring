@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="questionsImpl" class="ru.otus.spring.hw1.dao.QuestionsImpl">
+        <property name="resourcePath" value="classpath:/questions.csv"/>
+    </bean>
+    <bean id="examImpl" class="ru.otus.spring.hw1.dao.ExamImpl">
+        <constructor-arg name="questions" ref="questionsImpl"/>
+    </bean>
+    <bean id="testingService" class="ru.otus.spring.hw1.service.TestingServiceImp">
+        <constructor-arg name="exam" ref="examImpl"/>
+        <constructor-arg type="java.lang.String" value="Hello ! What is your name ?"/>
+    </bean>
+</beans>
