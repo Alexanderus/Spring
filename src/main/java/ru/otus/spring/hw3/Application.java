@@ -2,19 +2,14 @@ package ru.otus.spring.hw3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.PropertySource;
-import ru.otus.spring.hw3.service.TestingService;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import ru.otus.spring.hw3.config.AppProps;
 
 @SpringBootApplication
-@PropertySource("apps.yaml")
+@EnableConfigurationProperties(AppProps.class)
 public class Application {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(Application.class, args);
-        TestingService testingService = ctx.getBean(TestingService.class);
-        testingService.registerUser();
-        testingService.startExam();
-        testingService.showResults();
+        SpringApplication.run(Application.class, args);
     }
 }
