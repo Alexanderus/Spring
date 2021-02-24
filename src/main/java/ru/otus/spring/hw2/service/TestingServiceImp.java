@@ -1,8 +1,9 @@
 package ru.otus.spring.hw2.service;
 
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 import ru.otus.spring.hw2.dao.Exam;
 import ru.otus.spring.hw2.dao.Person;
-import ru.otus.spring.hw2.dao.PersonImpl;
 
 import java.util.Scanner;
 
@@ -19,6 +20,13 @@ public class TestingServiceImp implements TestingService {
         this.neededAnswers = neededAnswers;
     }
 
+    @EventListener(ContextRefreshedEvent.class)
+    public void run() {
+        registerUser();
+        startExam();
+        showResults();
+    }
+
     @Override
     public void registerUser() {
         String personName;
@@ -27,7 +35,7 @@ public class TestingServiceImp implements TestingService {
         personName = new Scanner(System.in).nextLine();
         System.out.println("What is your surname ?");
         personSurname = new Scanner(System.in).nextLine();
-        this.person = new PersonImpl(personName, personSurname);
+        this.person = new Person(personName, personSurname);
     }
 
     @Override
