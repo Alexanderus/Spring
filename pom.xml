@@ -77,7 +77,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>ru.otus.spring.Main</mainClass>
+                            <mainClass>ru.otus.spring.hw2.Application</mainClass>
                             <classpathPrefix>libs/</classpathPrefix>
                         </manifest>
                     </archive>
@@ -96,7 +96,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        ru.otus.spring.Main
+                                        ru.otus.spring.hw2.Application
                                     </mainClass>
                                 </manifest>
                             </archive>
