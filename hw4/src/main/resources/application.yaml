@@ -1,9 +1,0 @@
-application:
-  locale: ru
-  neededAnswers: 3
-
-spring:
-  banner:
-    location: classpath:/banner.txt
-
-questionsCSVPath: classpath:/questions.csv
