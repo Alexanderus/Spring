@@ -1,4 +1,4 @@
-package ru.otus.spring.dao;
+package ru.otus.spring.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class QuestionsLoaderImpl implements QuestionsLoader {
+public class QuestionsLoaderServiceImpl implements QuestionsLoaderService {
     private Resource questionsResource;
 
-    public QuestionsLoaderImpl(@Value("classpath:/questions.csv") final Resource questionsResource) {
+    public QuestionsLoaderServiceImpl(@Value("classpath:/questions.csv") final Resource questionsResource) {
         this.questionsResource = questionsResource;
     }
 

@@ -21,7 +21,7 @@ public class ExamImpl implements Exam {
             }
             System.out.println("Enter correct answer: ");
             String numberOfAnswer = new Scanner(System.in).nextLine();
-            if (x.getCorrectAnswer().contains(x.getAnswers().get(Integer.parseInt(numberOfAnswer ) - 1))) {
+            if (x.getCorrectAnswer().contains(x.getAnswers().get(Integer.parseInt(numberOfAnswer) - 1))) {
                 correctAnswers++;
             }
         });

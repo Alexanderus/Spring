@@ -25,20 +25,14 @@ public class TestingServiceImp implements TestingService {
         this.props = props;
     }
 
-    @EventListener(ContextRefreshedEvent.class)
-    public void run() {
-        registerUser();
-        startExam();
-        showResults();
-    }
-
     @Override
     public void registerUser() {
         String personName;
         String personSurname;
         System.out.println(messageSource.getMessage("welcome.message", null, props.getLocale()));
+        System.out.println(messageSource.getMessage("nameQuestion.message", null, props.getLocale()));
         personName = new Scanner(System.in).nextLine();
-        System.out.println("What is your surname ?");
+        System.out.println(messageSource.getMessage("surnameQuestion.message", null, props.getLocale()));
         personSurname = new Scanner(System.in).nextLine();
         this.person = new Person(personName, personSurname);
     }
@@ -52,9 +46,11 @@ public class TestingServiceImp implements TestingService {
     @Override
     public void showResults() {
         if (correctAnswers >= props.getNeededAnswers()) {
-            System.out.println(String.format("Congratulations !!! \n%s passed exam ! \n%s correct answers.", person.getName(), correctAnswers));
+            System.out.println(messageSource.getMessage("congratulations.message", null, props.getLocale()));
+            System.out.println(messageSource.getMessage("examPassed.message", new String[]{person.getName(), Integer.toString(correctAnswers)}, props.getLocale()));
         } else {
-            System.out.println(String.format("Sorry =( \n%s don't pass exam.\n%s correct answers.", person.getName(), correctAnswers));
+            System.out.println(messageSource.getMessage("sorry.message", null, props.getLocale()));
+            System.out.println(messageSource.getMessage("failExam.message", new String[]{person.getName(), Integer.toString(correctAnswers)}, props.getLocale()));
         }
     }
 }
