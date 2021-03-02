@@ -1,0 +1,5 @@
+Spring is ?;a free framework;*an open source framework;a licenced framework;a proprietary framework
+Beans defined in spring framework are by default ?;abstract;*singleton;final;initialized
+What are different types of Bean Injections ?;*constructor and setter;getter and setter;constructor and getter;setter, getter, and constructor
+What exception class is related to all the exceptions that are thrown in spring applications?;ArrayIndexOutOfBond;*DataAccessException;NullPointerException;SpringException
+Controller in spring is ?;a abstract class;a concrete class;final class;*an interface
