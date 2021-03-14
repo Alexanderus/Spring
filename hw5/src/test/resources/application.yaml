@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./db/otus
+    username: su
+    password:
+    initialization-mode: always
+    schema: schema.sql
+    data: Testdata.sql
+
+  h2:
+    console:
+      path: /h2-console
+      settings:
+        web-allow-others: true
